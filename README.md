@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9e6e2e62-5e6b-45c3-b935-89edf5b2f8bf)# Jenkins_learning
+# Jenkins_learning
 In this repo's we will learn the basic to advance concepts of jenkins:
 Shared_library:
 In Jenkins, a shared library is a way to store commonly used code(reusable code), such as scripts or functions, that can be used by different Jenkins pipelines.
