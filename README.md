@@ -17,6 +17,7 @@ Step-by-Step:
 1. Create the Shared Library
 Let's create a shared library repository named jenkins-shared-library.
 ----------------------------------------------------------------
+
 jenkins-shared-library/
 ├── vars/
 │   ├── deployApp.groovy
@@ -24,9 +25,13 @@ jenkins-shared-library/
 │   └── org/
 │       └── example/
 │           └── Utils.groovy
+
 ----------------------------------------------------------------
+
 in the var directory
+
 ----------------------------------------------
+
 def call(String environment) {
     echo "Deploying application to ${environment} environment"
     // Add deployment logic here, for example:
@@ -41,10 +46,14 @@ def call(String environment) {
     fi
     """
 }
+
 ------------------------------------------------
+
 in the src folder:
 src/org/example/Utils.groovy:
+
 --------------------------------------------
+
 package org.example
 
 class Utils {
@@ -52,7 +61,9 @@ class Utils {
         return "Hello, ${name}!"
     }
 }
---------------------------------------------
+
+---------------------------------------------
+
 2. Configure Jenkins to Use the Shared Library
 In Jenkins, navigate to Manage Jenkins -> Configure System. Under Global Pipeline Libraries, add your shared library configuration:
 
@@ -66,7 +77,9 @@ Project Repository: https://your-git-repo-url/jenkins-shared-library.git
 Now, you can use the shared library in your Jenkins pipelines.
 
 Jenkinsfile in a project repository:
+
 --------------------------------------------------
+
 @Library('my-shared-library') _
 
 pipeline {
@@ -82,5 +95,6 @@ pipeline {
         }
     }
 }
+
 ------------------------------------------------
 
