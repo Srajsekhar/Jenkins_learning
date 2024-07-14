@@ -1,0 +1,43 @@
+in this we will learn about the baic of jenkins stage:
+-----------------------------------
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            options {
+                timeout(time: 3, unit: 'MINUTES')
+            }
+            steps {
+                echo 'Building...'
+                // Your build commands here
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Your test commands here
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Your deploy commands here
+            }
+        }
+    }
+}
+--------------------------------------------
+Explanation
+pipeline: Defines the entire Jenkins pipeline.
+agent any: Specifies that the pipeline can run on any available agent.
+stages: Contains the different stages of the pipeline.
+stage('Build'): Defines the Build stage.
+options: Contains options specific to the stage.
+timeout(time: 3, unit: 'MINUTES'): Sets a timeout of 3 minutes for the stage.
+steps: Contains the steps to be executed within the stage.
+echo 'Building...': Prints a message to the console (replace this with your actual build commands).
+stage('Test') and stage('Deploy'): Define additional stages for testing and deployment (replace with actual commands as needed).
+By using the timeout directive, you can ensure that your Jenkins stages do not run indefinitely and adhere to the specified time limits.
