@@ -1,4 +1,4 @@
-# Jenkins_learning
+![image](https://github.com/user-attachments/assets/9e6e2e62-5e6b-45c3-b935-89edf5b2f8bf)# Jenkins_learning
 In this repo's we will learn the basic to advance concepts of jenkins:
 Shared_library:
 In Jenkins, a shared library is a way to store commonly used code(reusable code), such as scripts or functions, that can be used by different Jenkins pipelines.
@@ -97,4 +97,39 @@ pipeline {
 }
 
 ------------------------------------------------
+Timing for stages in jenkins:
+you can set a timeout for stages in a Jenkins pipeline to ensure that they do not exceed a specified duration. You can use the timeout option in your Jenkins pipeline to specify the maximum duration a stage should take.
+---------------------------------------------------------
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            options {
+                timeout(time: 3, unit: 'MINUTES')
+            }
+            steps {
+                echo 'Building...'
+                // Your build commands here
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Your test commands here
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Your deploy commands here
+            }
+        }
+    }
+}
+----------------------------------------------------------
+In this example, the options block inside the Build stage uses the timeout directive to set a timeout of 3 minutes. If the Build stage takes longer than 3 minutes, Jenkins will terminate it and mark the build as failed.
+
 
